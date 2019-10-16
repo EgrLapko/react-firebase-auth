@@ -1,0 +1,179 @@
+body {
+    font-family: 'Open Sans Condensed', sans-serif;
+    padding: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: unset;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+$sub-color: grey;
+$main-color: black;
+
+@mixin shrinkLabel {
+  top: -14px;
+  font-size: 12px;
+  color: $main-color;
+}
+
+// ----------------------------------------------- MAIN
+.main-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    .text-not-logged {
+        font-size: 3rem;
+    }
+}
+
+
+// ----------------------------------------------- IMAGE LIST
+
+.images-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    .image-component {
+        display: flex;
+        width: 30rem;
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+// ----------------------------------------------- NAVBAR
+.navbar {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0rem;
+    .logo-container {
+        display: flex;
+        width: 70px;
+        height: 100%;
+    }
+    .menu {
+        display: flex;
+        justify-content: flex-end;
+        font-size: 1.3rem;
+        .option {
+            margin: 0 1rem;
+            cursor: pointer;
+        }
+    }
+}
+
+//-------------------------------------------------- CUSTOM BUTTON
+
+.custom-button {
+    min-width: 165px;
+    width: auto;
+    height: 50px;
+    letter-spacing: 0.5px;
+    line-height: 50px;
+    padding: 0 35px 0 35px;
+    font-size: 15px;
+    background-color: black;
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Open Sans Condensed';
+    font-weight: bolder;
+    border: none;
+    cursor: pointer;
+  
+    &:hover {
+      background-color: white;
+      color: black;
+      border: 1px solid black;
+    }
+    &.google-sign-in {
+        background-color: #4285f4;
+        color: white;
+        &:hover {
+            background-color: #357ae8;
+            border: none;
+        }
+    }
+  }
+  
+  //-------------------------------------------------- SIGN IN COMPONENT
+
+.login {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 2rem;
+    .sign-in {
+      width: 25vw;
+      margin: 0rem 5rem;
+      display: flex;
+      flex-direction: column;
+      .title {
+          margin: 1rem 0;
+      }
+    }
+    .sign-up {
+      display: flex;
+      flex-direction: column;
+      width: 25vw;
+      margin: 0rem 5rem;
+      .title {
+        margin: 1rem 0;
+      }
+    }
+    .group {
+      position: relative;
+      margin: 45px 0;
+      .form-input {
+        background: none;
+        background-color: white;
+        color: $sub-color;
+        font-size: 18px;
+        padding: 10px 10px 10px 5px;
+        display: block;
+        width: 100%;
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px solid $sub-color;
+        margin: 25px 0;
+    
+        &:focus {
+          outline: none;
+        }
+    
+        &:focus ~ .form-input-label {
+          @include shrinkLabel();
+        }
+      }
+      input[type='password'] {
+        letter-spacing: 0.3em;
+      }
+      .form-input-label {
+        color: $sub-color;
+        font-size: 16px;
+        font-weight: normal;
+        position: absolute;
+        pointer-events: none;
+        left: 5px;
+        top: 10px;
+        transition: 300ms ease all;
+        &.shrink {
+          @include shrinkLabel();
+        }
+      }
+    }
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
